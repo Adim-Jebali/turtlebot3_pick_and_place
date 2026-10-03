@@ -317,8 +317,8 @@ turtlebot3_pick_and_place/
 ## 👤 Author & Acknowledgements
 
 **Adim Jebali**
-Mechatronics Engineering student, École Nationale d'Ingénieurs de Sousse (ENISo) · Mobile robotics & autonomous systems
-GitHub: [@Adim-Jebali](https://github.com/Adim-Jebali)
+Mechatronics Engineering student · Mobile robotics & autonomous systems
+
 
 **Thanks to**
 - **Enova Robotics** for hosting the internship and the opportunity to work on a real mobile-robotics problem
