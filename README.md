@@ -49,10 +49,11 @@
 7. [Supervision Dashboard](#️-supervision-dashboard)
 8. [Tech Stack](#-tech-stack)
 9. [Getting Started](#-getting-started)
-10. [Testing & Validation](#-testing--validation)
-11. [Repository Structure](#-repository-structure)
-12. [Author & Acknowledgements](#-author--acknowledgements)
-13. [References](#-references)
+10. [Usage](#-usage)
+11. [Testing & Validation](#-testing--validation)
+12. [Repository Structure](#-repository-structure)
+13. [Author & Acknowledgements](#-author--acknowledgements)
+14. [References](#-references)
 
 ---
 
@@ -269,15 +270,105 @@ source install/setup.bash
 
 ### 4. Run
 
-<!-- TODO: adapt the command below to your exact entry point / launch files. -->
+See the [Usage](#-usage) section below for the full list of commands.
+
+---
+
+## 🎮 Usage
+
+Run each command below **in its own terminal**. Every terminal must source the ROS 2 and workspace environments first:
 
 ```bash
-ros2 run turtlebot3_pick_and_place nav_dashboard
+source /opt/ros/humble/setup.bash
+source ~/turtlebot3_ws/install/setup.bash
 ```
 
-Then use the dashboard buttons in this order:
+### 1. Simulation: Gazebo with the arm
 
-**Gazebo → Nav2 → MoveIt → Spawn object → Application nodes → Behavior Tree → Start patrol**
+```bash
+ros2 launch turtlebot3_manipulation_gazebo gazebo.launch.py
+```
+
+### 2. Arm motion planning: MoveIt
+
+```bash
+ros2 launch turtlebot3_manipulation_moveit_config moveit_core.launch.py
+```
+
+### 3. Navigation: Nav2
+
+```bash
+ros2 launch turtlebot3_manipulation_navigation2 navigation2.launch.py use_sim_time:=True
+```
+
+### 4. Perception
+
+**Object detection node**
+
+```bash
+ros2 run turtlebot3_pick_and_place detect_object_node --ros-args -p camera_topic:=/pi_camera/image_raw
+```
+
+**Pose estimation node** (lists the available parameters)
+
+```bash
+ros2 run turtlebot3_pick_and_place pose_estimation_node --help
+```
+
+**Read the object's 3D position**
+
+```bash
+ros2 topic echo /object_pose
+```
+
+### 5. Trigger navigation to the detected object
+
+```bash
+ros2 service call /navigate_to_object std_srvs/srv/Trigger
+```
+
+### 6. Web dashboard
+
+The dashboard needs four terminals:
+
+| Terminal | Command | Purpose |
+|:---:|---|---|
+| 1 | `ros2 launch rosbridge_server rosbridge_websocket_launch.xml` | ROS ↔ web bridge (WebSocket) |
+| 2 | `ros2 run web_video_server web_video_server` | Camera video streaming |
+| 3 | `cd ~/Bureau && python3 -m http.server 8000` | Serves the dashboard page (run it from the folder containing the dashboard HTML file) |
+| 4 | `ros2 run turtlebot3_pick_and_place system_launcher_node` | Starts and stops the system components from the dashboard |
+
+Then open the dashboard in your browser at `http://localhost:8000/<dashboard-file>.html`.
+
+The camera feed is available at:
+
+```text
+http://localhost:8080/stream?topic=/pi_camera/image_raw
+```
+
+### 7. Development utilities
+
+**Rebuild the package**
+
+```bash
+cd ~/turtlebot3_ws
+colcon build --packages-select turtlebot3_pick_and_place --symlink-install
+source install/setup.bash
+```
+
+**Manual control (keyboard teleoperation)**
+
+```bash
+export TURTLEBOT3_MODEL=waffle
+ros2 run turtlebot3_teleop teleop_keyboard
+```
+
+**Distance check script**
+
+```bash
+cd ~/turtlebot3_ws
+python3 check_distance.py
+```
 
 ---
 
