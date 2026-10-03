@@ -324,19 +324,6 @@ The system was validated incrementally, subsystem by subsystem, then through ful
 
 ---
 
-## ⚠️ Limitations & Roadmap
-
-| Status | Item |
-|---|---|
-| ✅ Done | Full pick-and-place cycle validated in simulation |
-| ✅ Done | Behavior Tree orchestration and supervision dashboard |
-| 🔜 Planned | Replace HSV segmentation (sensitive to false positives) with a **deep-learning detector (YOLO)** |
-| 🔜 Planned | **Deployment on the physical robot** |
-| 🔜 Planned | Dynamic drop-off point instead of a fixed location |
-| 🔜 Planned | Multi-object handling and richer failure-recovery behaviors |
-
----
-
 ## 📁 Repository Structure
 
 <!-- TODO: adjust to your real tree (run `tree -L 2` in the package folder). -->
