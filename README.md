@@ -50,10 +50,9 @@
 8. [Tech Stack](#-tech-stack)
 9. [Getting Started](#-getting-started)
 10. [Testing & Validation](#-testing--validation)
-11. [Limitations & Roadmap](#️-limitations--roadmap)
-12. [Repository Structure](#-repository-structure)
-13. [Author & Acknowledgements](#-author--acknowledgements)
-14. [References](#-references)
+11. [Repository Structure](#-repository-structure)
+12. [Author & Acknowledgements](#-author--acknowledgements)
+13. [References](#-references)
 
 ---
 
@@ -74,7 +73,9 @@
 
 ## 🎬 Demo
 
-> 📹 **Video demo — coming soon**
+> 📹 **Full pipeline demo — video coming soon**
+>
+> One video showing the complete cycle: patrol → detection → approach → grasp → delivery → return → patrol resume.
 
 <!--
   ┌──────────────────────────────────────────────────────────────┐
@@ -99,6 +100,8 @@
 
 ![Demo](docs/images/demo.gif)
 -->
+
+**Screenshots**
 
 <div align="center">
 
