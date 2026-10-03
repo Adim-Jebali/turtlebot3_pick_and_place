@@ -64,7 +64,7 @@
 | **Period** | 15 June 2026 – 15 July 2026 |
 | **Goal** | Integrated control system for navigation, object localization and pick-and-place on a mobile manipulator |
 | **Platform** | TurtleBot3 + OpenMANIPULATOR-X (simulated) |
-| **Middleware** | ROS 2 Humble Hawksbill (LTS) on Ubuntu |
+| **Middleware** | ROS 2 Humble on Ubuntu |
 | **Core contribution** | Behavior Tree orchestration layer for robust, autonomous multi-cycle missions |
 | **Status** | ✅ Validated in Gazebo simulation · 🔜 Physical robot deployment planned |
 | **Language** | Python 3 |
@@ -72,47 +72,16 @@
 ---
 
 ## 🎬 Demo
+> 📹 **Full pipeline demo
+> 
 
-> 📹 **Full pipeline demo — video coming soon**
->
-> One video showing the complete cycle: patrol → detection → approach → grasp → delivery → return → patrol resume.
+https://github.com/user-attachments/assets/06b1517a-dafa-403e-9ce8-0d41b9eaabdf
 
-<!--
-  ┌──────────────────────────────────────────────────────────────┐
-  │  OPTION A — YouTube (recommended, clickable thumbnail)       │
-  └──────────────────────────────────────────────────────────────┘
-  1. Upload your video to YouTube (unlisted or public).
-  2. Replace VIDEO_ID below, then delete this comment block and the placeholder above.
 
-[![Watch the demo](https://img.youtube.com/vi/VIDEO_ID/maxresdefault.jpg)](https://www.youtube.com/watch?v=VIDEO_ID)
 
-  ┌──────────────────────────────────────────────────────────────┐
-  │  OPTION B — Direct upload on GitHub (.mp4 under 10 MB)       │
-  └──────────────────────────────────────────────────────────────┘
-  1. Click the pencil icon to edit this README on github.com.
-  2. Drag & drop your .mp4 into the editor: GitHub generates a link.
-  3. Paste that link on its own line here.
 
-  ┌──────────────────────────────────────────────────────────────┐
-  │  OPTION C — Animated GIF (plays inline, no click needed)     │
-  └──────────────────────────────────────────────────────────────┘
-  Put your GIF in docs/images/demo.gif, then:
 
-![Demo](docs/images/demo.gif)
--->
 
-**Screenshots**
-
-<div align="center">
-
-| Autonomous navigation | Object grasping | Supervision dashboard |
-|:---:|:---:|:---:|
-| ![Navigation](docs/images/navigation.png) | ![Grasp](docs/images/grasp.png) | ![Dashboard](docs/images/dashboard.png) |
-| *Nav2 in RViz2* | *Object lift in Gazebo* | *PyQt5 supervision UI* |
-
-</div>
-
----
 
 ## ✨ Overview & Highlights
 
@@ -353,7 +322,6 @@ GitHub: [@Adim-Jebali](https://github.com/Adim-Jebali)
 
 **Thanks to**
 - **Enova Robotics** for hosting the internship and the opportunity to work on a real mobile-robotics problem
-- **M. Jasser Zaag**, industrial supervisor, for his guidance and regular follow-up
 - The open-source communities behind **ROS 2, Nav2, MoveIt, py_trees, OpenCV** and **ROBOTIS TurtleBot3**
 
 ---
